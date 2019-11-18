@@ -36,9 +36,10 @@ bool __fastcall hookCreateMove(ClientMode* ClientMode, void* edx, float flInputS
 
 	PredictionSystem.StartPrediction(cmd);
 	
+	bool bCanShoot = weapon->m_flNextPrimaryAttack() <= LocalPlayer->m_nTickBase() * globals()->interval_per_tick;
 	
 	QAngle SpreadAngle = H::SpreadAngle(cmd);
-	if (LocalPlayer->GetActiveWeapon()->CanShoot() && cmd->buttons.IsFlagSet(IN_ATTACK) && !HoldingTool)
+	if (bCanShoot && cmd->buttons.IsFlagSet(IN_ATTACK) && !HoldingTool)
 		cmd->viewangles += SpreadAngle;
 
 
@@ -46,7 +47,7 @@ bool __fastcall hookCreateMove(ClientMode* ClientMode, void* edx, float flInputS
 	QAngle TargetAngle = QAngle(0, 0, 0);
 	bool Aim = false;
 	if (InputSystem()->IsButtonDown(KEY_LALT) && HackVars::Aimbot::Enabled && !HoldingTool && !ForcedPacket) {
-		if (H::ClosestTargetToCrosshair(cmd, Target, TargetAngle) && LocalPlayer->GetActiveWeapon()->CanShoot()) {
+		if (H::ClosestTargetToCrosshair(cmd, Target, TargetAngle) && bCanShoot) {
 			cmd->viewangles = TargetAngle + SpreadAngle;
 			cmd->buttons.SetFlag(IN_ATTACK);
 			H::Util::CorrectMovement(cmd, ViewAngle);

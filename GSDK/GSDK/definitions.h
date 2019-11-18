@@ -1002,7 +1002,7 @@ enum EFontFlags
 };
 typedef struct player_info_s
 {
-	char			name[32];
+	char			name[128];
 	// local server user ID, unique while server is running
 	int				userID;
 	// global unique player identifer
@@ -1010,7 +1010,7 @@ typedef struct player_info_s
 	// friends identification number
 	long			friendsID;
 	// friends name
-	char			friendsName[32];
+	char			friendsName[128];
 	// true, if player is a bot controlled by game.dll
 	bool			fakeplayer;
 	// true if player is the HLTV proxy

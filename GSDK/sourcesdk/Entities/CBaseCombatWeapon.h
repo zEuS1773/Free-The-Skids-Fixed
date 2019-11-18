@@ -270,7 +270,7 @@ public: // 442 - 183
 	{
 		if (this == nullptr)
 			return 0.0f;
-		return *reinterpret_cast<float*>((DWORD)this + 0x17CC);
+		return *reinterpret_cast<float*>((DWORD)this + 0x17D4);
 	}
 	bool CanShoot()
 	{

@@ -1,4 +1,6 @@
 
+#define Assert
+
 typedef __int32 intp;
 typedef unsigned __int32 uintp;
 #ifdef UTBLOCKLMEMORY_TRACK

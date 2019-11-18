@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs/GSDK/v16/ipch/AutoPCH
+/.vs/GSDK/v16
+/GSDK/Release
+/Release
+/GSDK/Debug/GSDK.tlog
+/GSDK/Debug

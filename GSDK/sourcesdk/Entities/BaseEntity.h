@@ -696,7 +696,7 @@ public:
 	}
 	int& m_nTickBase()
 	{
-		return *(int*)((uintptr_t)this + 0x2580);
+		return *(int*)((uintptr_t)this + 0x2588);
 	}
 	bool IsWorld()
 	{
